@@ -1,0 +1,15 @@
+name: MCVerifier
+main: io.github.brunocu.mcverifier.MCVerifier
+version: '${project.version}'
+api-version: 1.18
+load: STARTUP
+depend:
+  - Vault
+softdepend:
+  - LuckPerms
+
+commands:
+  verify:
+    description: Verify your minecraft account
+    usage: "§6Usage: §r/verify §aaccept§r|§cdecline"
+    permission: mcverifier.verify

@@ -1,0 +1,19 @@
+# Groups to sync between discord and minecraft
+# At least 1 valid group is necesarry for the plugin to work
+# Groups without descriptors will auto-generate on startup
+#
+# Example group list:
+#
+#groups:
+#  - verified
+#
+# Example group syntax:
+#
+#verified:
+#  # id for the discord role
+#  roleID: '0'
+#  # minecraft group that will be granted
+#  # by default same name as the group
+#  mcgroup: verified
+#
+groups: []

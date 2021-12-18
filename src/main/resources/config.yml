@@ -1,0 +1,27 @@
+# Discord BOT token
+# DON'T SHARE THIS WITH ANYONE
+token: ''
+
+# Use a database connection for storing data, or a filesystem (default)
+# If false connection settings will be ignored
+mysql:
+  use: false
+  host: 127.0.0.1
+  port: 3306
+  database: database
+  table-prefix: mcv_
+  username: root
+  password: ''
+
+# How long the user has (in seconds) to accept/decline
+# don't make it too long I don't know what breaks
+# set to -1 to disable (not recommended)
+verify-timeout: 30
+
+# Group to grant on successful verification
+# group name from groups.yml
+# leave empty to disable
+on-verify-group: ''
+
+# Send player a warning message on login if unverified
+on-login-warning: true
