@@ -1,0 +1,19 @@
+name: 'Build Package'
+description: 'build and upload-artifact maven package'
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/setup-java@v2
+      with:
+        distribution: 'temurin'
+        java-version: '16'
+        cache: 'maven'
+    - name: Maven build
+      run: mvn -B package --file pom.xml
+      shell: bash
+    - name: upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: package
+        path: target/*.jar
