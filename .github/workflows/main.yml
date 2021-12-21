@@ -1,15 +1,15 @@
 name: Build and release
 
-defaults:
-  runs-on: ubuntu-latest
-
 on:
   push:
     branches: main
 
+defaults:
+  runs-on: ubuntu-latest
+
 jobs:
   call-build:
-    uses: brunocu/MCVerifier/.github/worflows/build.yml@main
+    uses: brunocu/MCVerifier/.github/workflows/build.yml@main
 
   release:
     needs: call-build
