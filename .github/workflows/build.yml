@@ -1,0 +1,40 @@
+name: Build
+
+on:
+  workflow_call:
+    outputs:
+      version:
+        value: ${{ jobs.build.outputs.version }}
+      artifact:
+        value: ${{ jobs.build.outputs.artifact }}
+      prerelease:
+        value: ${{ jobs.build.outputs.prerelease }}
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.project.outputs.version }}
+      artifact: ${{ steps.project.outputs.artifact }}
+      prerelease: ${{ steps.project.outputs.prerelease }}
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: '16'
+          cache: 'maven'
+      - name: Setup variables
+        id: project
+        run: bash ./.github/scripts/setup_variables.sh
+      - name: Maven build
+        run: mvn -B package --file pom.xml
+      - uses: actions/upload-artifact@v2
+        with:
+          name: package
+          path: ./target/${{ steps.project.outputs.artifact }}.jar

@@ -17,7 +17,7 @@ echo "::set-output name=version::$version"
 echo "::set-output name=artifact::$artifact"
 
 if [[ $version =~ "SNAPSHOT" ]]; then
-    echo "::set-output name=pre-release::true"
+    echo "::set-output name=prerelease::true"
 else
-    echo "::set-output name=pre-release::false"
+    echo "::set-output name=prerelease::false"
 fi
